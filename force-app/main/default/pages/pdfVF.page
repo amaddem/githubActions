@@ -1,0 +1,15 @@
+<apex:page standardcontroller="Account" showQuickActionVfHeader="false" showHeader="false">
+    <apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <script>
+    $Lightning.use("c:pdfapp", function() {
+        $Lightning.createComponent("c:lwc_document",
+          { 
+          },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+</apex:page>

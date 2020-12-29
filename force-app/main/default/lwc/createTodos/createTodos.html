@@ -1,0 +1,39 @@
+<template>
+    <lightning-card  title="Create a Todo">
+
+    <form class="slds-m-left_medium slds-m-right_medium ">
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="text-input-id-1">
+                <abbr class="slds-required" title="required">* </abbr>Todo Name</label>
+            <div class="slds-form-element__control">
+                <input type="text" id="text-input-id-1" placeholder="name of your todo" value={Name} required=""
+                    onchange={handleOnNameChange} class="slds-input" />
+            </div>
+        </div>
+        <lightning-input type="date" value={creationDate} onchange={handleOnDateChange} name="input1"
+            label="Created Date">
+        </lightning-input>
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="select-01">
+                <abbr class="slds-required" title="required">* </abbr>Select a status</label>
+            <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <select aria-describedby="error-01" class="slds-select" id="select-01"
+                        onchange={handleOnStatusChange} required="">
+                        <template for:each={getOptions} for:item="opt">
+                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+        </div>
+      <!-- <lightning-combobox name="progress" label="Status" value={objectToCreate.Status__c}
+            placeholder="Select Progress" options={getOptions} onchange={handleOnStatusChange}></lightning-combobox>--> 
+        <div  class="slds-m-top_small slds-m-bottom_medium">
+            <lightning-button variant="brand" label="Ajouter" title="Primary action" onclick={handleOnSave}>
+            </lightning-button>
+        </div>
+        
+    </form>
+    </lightning-card>
+</template>

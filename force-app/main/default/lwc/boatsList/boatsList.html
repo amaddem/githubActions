@@ -1,0 +1,9 @@
+<template>
+    <ul class="slds-m-around_medium">
+        <template for:each={BoatsList.data} for:item="boat">
+            <li key={boat.Id}>
+                {boat.Name}
+            </li>
+        </template>
+    </ul>
+</template>
